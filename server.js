@@ -1,10 +1,10 @@
 const handlebars = require('express-handlebars')
 const express = require('express')
 const mongoose = require('mongoose')
-const { checkForMailing, setDefaultEmail } = require('./util/util')
-const model = require('./model/products')
-const { validateProducts } = require('./validations/products')
-const { validateEmail } = require('./validations/email')
+const { checkForMailing, setDefaultEmail } = require('./src/util/util')
+const model = require('./src/model/products')
+const { validateProducts } = require('./src/validations/products')
+const { validateEmail } = require('./src/validations/email')
 const { MONGO_PASSWORD } = require('./env')
 const fs = require('fs')
 
@@ -92,8 +92,8 @@ app.post('/set-correo', async (req, res) => {
 
 const PORT = process.env.PORT || 8080
 /* -----CONEXION A MONGODB-------- */
-// mongoose.connect('mongodb+srv://calandrajosei:MONGO_PASSWORD@firstmongo.vlbx5.mongodb.net/TP4?retryWrites=true&w=majority', {
-mongoose.connect('mongodb://localhost/tp4', {
+mongoose.connect(`mongodb+srv://calandrajosei:${MONGO_PASSWORD}@firstmongo.vlbx5.mongodb.net/TP4?retryWrites=true&w=majority`, {
+// mongoose.connect('mongodb://localhost/tp4', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, error => {

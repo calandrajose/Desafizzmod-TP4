@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer')
 const fs = require('fs')
-const {ADMIN_PASSWORD} = require('../env')
+const {ADMIN_PASSWORD} = require('../../env')
 
 const setEmailBody = (products) => {
     if (!Array.isArray(products)) return console.log('erroror en formato de listado');
