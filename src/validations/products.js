@@ -7,7 +7,6 @@ const validateProducts = user =>{
         description:Joi.string().alphanum().required(),
         url:Joi.string().alphanum().required(),
     })
-
     const {error} = productSchema.validate(user)
     return error ? {valid: false, error} : {valid: true}
 }

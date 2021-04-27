@@ -1,11 +1,12 @@
 const Joi = require('@hapi/joi')
 
 const validateEmail = user =>{
-    const productSchema = Joi.object({
-        email:Joi.string().alphanum().email
+    const emailSchema = Joi.object({
+        email:Joi.string().alphanum().email().required()
     })
 
-    const {error} = productSchema.validate(user)
+    const {error} = emailSchema.validate(user)
+    
     return error ? {valid: false, error} : {valid: true}
 }
 

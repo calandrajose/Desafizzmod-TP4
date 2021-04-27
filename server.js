@@ -52,7 +52,7 @@ app.post('/ingreso', async (req, res) => {
 
     const isValid = validateProducts(product)
     try {
-        if (isValid) {
+        if (isValid.valid) {
             const newProduct = new model.product(product)
             newProduct.save(error => {
                 if (error) throw new Error(`Error en escritura de producto: ${error}`)
@@ -60,7 +60,8 @@ app.post('/ingreso', async (req, res) => {
             await checkForMailing();
             res.redirect('/');
         } else {
-            res.send(isValid.error)
+            console.log(isValid.error)
+            res.redirect('/')
         }
 
     } catch (error) {
@@ -75,7 +76,7 @@ app.post('/set-correo', async (req, res) => {
     console.log(req.body);
 
     const isValid = validateEmail(email)
-    if (isValid) {
+    if (isValid.valid) {
         try {
             await fs.promises.writeFile('correo.dat', email);
             res.redirect('/');
@@ -85,15 +86,16 @@ app.post('/set-correo', async (req, res) => {
             res.send(error);
         }
     } else {
-        res.send(isValid.error)
+        console.log(isValid.error)
+        res.redirect('/')
     }
 })
 
 
 const PORT = process.env.PORT || 8080
 /* -----CONEXION A MONGODB-------- */
-mongoose.connect(`mongodb+srv://calandrajosei:${MONGO_PASSWORD}@firstmongo.vlbx5.mongodb.net/TP4?retryWrites=true&w=majority`, {
-// mongoose.connect('mongodb://localhost/tp4', {
+// mongoose.connect(`mongodb+srv://calandrajosei:${MONGO_PASSWORD}@firstmongo.vlbx5.mongodb.net/TP4?retryWrites=true&w=majority`, {
+mongoose.connect('mongodb://localhost/tp4', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, error => {

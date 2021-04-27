@@ -33,22 +33,26 @@
         <div class="column">
           <form method="POST" action="/ingreso">
             <label>Nombre</label>
-            <input type="text" name="name" class="u-full-width" />
+            <input type="text" name="name" class="u-full-width"  />
             <label>Precio</label>
             <input
               type="number"
               name="price"
               class="u-full-width"
+              required
             />
             <label>Descripcion</label>
-            <textarea class="u-full-width" name="description"> </textarea>
+            <textarea class="u-full-width" name="description" required> </textarea>
             <label>URL del producto</label>
-            <input type="url" name="url" class="u-full-width"  />
+            <input type="url" name="url" class="u-full-width" required />
             <button type="submit" class="u-full-width button-primary">
               Enviar
             </button>
             <div class="row">
               <a class="button button-primary u-full-width" href="/set-correo">Carga tu Email</a>
+          </div>
+            <div class="row">
+              <a class="button button-primary" href="/listar">Ver Listado</a>
           </div>
           </form>
         </div>
