@@ -1,0 +1,71 @@
+html {
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: linear-gradient(-225deg, #0CCDA3 0%, #3af1ca 52%, #C1FCD3 100%);
+  min-height: 100%;
+  padding-bottom: 5rem;
+}
+
+h1, h2, h3  {
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+
+  text-transform: uppercase;
+
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 1px;
+}
+
+h3{
+  color: crimson;
+}
+
+label {
+  color: white;
+}
+
+input[type="date"],
+input[type="time"] {
+  height: 38px;
+    padding: 6px 10px;
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+.button.eliminar,
+.button.eliminar:hover {
+  background-color: #c10059;
+  color: white;
+  margin-top: 2rem;
+}
+
+th{
+  text-align: center;
+}
+td{
+color: white;
+padding: 3rem 0;
+text-align: center;
+text-transform: uppercase;
+font-family: 'Staatliches', cursive;
+letter-spacing: 1px;
+font-size: 2rem;
+text-shadow: #051310;
+}
+
+img{
+  width: 100px;
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,31 @@
+{{!-- <a href="/">
+    <span><i class="fas fa-home"></i></span>
+</a> --}}
+<h1> Administrador de Productos</h1>
+{{#if products.length}}
+<div class="container">
+    <div class="row">
+        <table class="u-full-with">
+            <tr style="color: rgb(27, 26, 26);">
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripcion</th>
+                <th>Foto</th>
+            </tr>
+            {{#each products}}
+            <tr>
+                <td>{{name}}</td>
+                <td>${{price}}</td>
+                <td>{{description}}</td>
+                <td><img src={{url}} alt={{name}}></td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    <div class="row">
+        <a class="button button-primary" href="/">Volver a Inicio</a>
+    </div>
+</div>
+{{else}}
+<h3>No se encontraron datos</h1>
+    {{/if}}
